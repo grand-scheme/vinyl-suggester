@@ -12,7 +12,7 @@ function discogsRequest(artist, album) {
   DiscogsService.getDiscogs(artist, album)
     .then(function(response) {
       console.log(response.results[1].master_id);
-      $("#output").html(`<a href="https://www.discogs.com/master/${response.results[1].master_id}">Click here</a>`);
+      // $("#output").html(`<a href="https://www.discogs.com/master/${response.results[1].master_id}">Click here</a>`);
     });
 }
 
@@ -32,10 +32,19 @@ $('#aboutButton').click (function() {
   $('#body').hide();
   $('#output').hide();
   $('#about').show();
+  $('#history').hide();
 });
 $('#homeButton').click (function() {
   $('#output').show();
   $('#body').show();
+  $('#about').hide();
+  $('#history').hide();
+
+});
+$('#historyButton').click (function() {
+  $('#history').show();
+  $('#body').hide();
+  $('#output').hide();
   $('#about').hide();
 });
 
@@ -60,6 +69,8 @@ $(document).ready(function() {
 
         // Make Discogs request with album retrieved from Spotify (callback) // 
         discogsRequest(spotifyData.artist, spotifyData.album);
+        $("#vinylLink").html(`Vinyl: <a href="https://www.discogs.com/master/${response.results[1].master_id}" class="card-link">Available on Discogs</a>`);
+        $("#demo-card").html(`<img class="card-img-top" src="${spotifyData.cover}" alt="Cover Art for the Album ${spotifyData.album}">`);
         // Place Spotify widget into webpage with album retrieved from Spotify API (callback) //
         spotifyPlayback(spotifyData.ID);
 

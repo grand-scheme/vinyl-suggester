@@ -5,6 +5,8 @@ html {
 body {
   background: #fbf6f1;
   color: #000000;
+  font-family: 'Cooper Black', 'Capriola', sans-serif;
+  font-weight: bold;
 }
 
 #logoImage {
@@ -26,10 +28,23 @@ body {
   top: 0;
 }
 
-#body, #output, #navbar, #about{
+#body, #output, #navbar, #about, #history{
   display: none;
 }
 
 #navbar {
   background-color: #fbf6f1;
+}
+
+.album-data {
+  max-width:18rem;
+  margin-bottom: 2rem;
+}
+
+iframe {
+  border-radius: 5%;
+}
+
+#heroImage {
+  border-radius: 50%;
 }
