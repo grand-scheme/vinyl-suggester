@@ -43,10 +43,10 @@ function discogsRequest(artist, album, id) {
   DiscogsService.getDiscogs(artist, album)
     .then(function(response) {
       if (response.results.length > 0) {
-        $("#vinylLink").html(`<h4>Purchase Album:</h4> <a href="https://www.discogs.com/master/${response.results[1].master_id}">Available on Discogs</a>`);
+        $("#vinylLink").html(`</br><a href="https://www.discogs.com/master/${response.results[1].master_id}" target="_blank"><img src="https://i.imgur.com/J0plMpi.png"></a>`);
         $("#" + id).html(`<a href="https://www.discogs.com/master/${response.results[1].master_id}">Available on Discogs</a>`);
       } else {
-        $("#vinylLink").html("<h5>Album not on Discogs</h5>");
+        $("#vinylLink").html(`</br><img src="https://i.imgur.com/vqDBBK2.png">`);
         $("#" + id).html("Album not on Discogs");
       }
     });
@@ -57,7 +57,7 @@ function displayInfo(albumObj) {
   $("#featWidget").html(`<iframe src="https://open.spotify.com/embed/album/${albumObj.ID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
   $("#featArtist").html(`<h4>Artist Name:</h4> ${albumObj.artist}`);
   $("#featAlbum").html(`<h4>Album Name:</h4> ${albumObj.album}`);
-  $("#featYear").html(`<h4>Release Year:</h4> ${albumObj.album}`);
+  // $("#featYear").html(`<h4>Release Year:</h4> ${albumObj.album}`);
   discogsRequest(albumObj.artist, albumObj.album, albumObj.ID);
 }
 
@@ -66,6 +66,7 @@ function printNoResult() {
   $("#featWidget").html(" ");
   $("#featArtist").html(" ");
   $("#featAlbum").html(" ");
+  $("#featYear").html(" ");
 }
 
 // User Interface Logic //
