@@ -13,6 +13,10 @@ Paro was built collaboratively by Ben, Zahnen, Eric, Riley, Shannon, and Cory as
 
 ---  
 
+Here is the current live project: https://paro-for-president.herokuapp.com/
+
+---
+
 ## Setup/Installation Instructions
 
 ### To run Paro locally:
